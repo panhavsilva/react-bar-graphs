@@ -1,24 +1,25 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './app-style.css'
-import { Hello } from '@panhasilva/react-bar-graphs'
+import { Graphic } from '@panhasilva/react-bar-graphs'
 
-function App () {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <Hello />
-        <p>
-          <button type='button' onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-      </header>
-    </div>
-  )
+type Data = {
+  label: string,
+  value: number,
 }
 
-export default App
+const data: Data[] = [
+  { label: 'Seg', value: 9720 },
+  { label: 'Ter', value: 3600 },
+  { label: 'Qua', value: 300 },
+  { label: 'Qui', value: 9000 },
+  { label: 'Sex', value: 6480 },
+  { label: 'Sáb', value: 9720 },
+  { label: 'Dom', value: 1800 },
+]
+
+export const App = () => {
+  return (
+    <>
+      <h1>Example Bar Graphs</h1>
+      <Graphic title='Título' data={data} />
+    </>
+  )
+}

@@ -1,5 +1,6 @@
 .editorconfig
 .eslintrc.json
+.storybook
 index.html
 lib
 src
