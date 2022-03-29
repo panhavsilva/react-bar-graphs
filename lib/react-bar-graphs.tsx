@@ -54,7 +54,7 @@ export const Graphic = ({
           ))}
         </G.Bars>
       </G.Shape>
-      <G.XAxis colors={style}>
+      <G.XAxis colors={style} size={dimensions}>
         {data.map((item) => (
           <G.Day key={item.label}>{item.label}</G.Day>
         ))}

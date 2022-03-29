@@ -1,32 +1,5 @@
 import styled from 'styled-components/macro'
-
-type StyleProps = {
-  size: {
-    height: number,
-    width: number,
-  },
-  colors: {
-    title: string,
-    border: string,
-    text: string,
-    lines: string,
-  },
-}
-type BarsProps = {
-  size: {
-    height: number,
-    width: number,
-  },
-  color: string,
-}
-type ColorsPorps = {
-  colors: {
-    title: string,
-    border: string,
-    text: string,
-    lines: string,
-  },
-}
+import { StyleProps, BarsProps, ColorsPorps, ColorsSizePorps } from './types'
 
 export const Container = styled.div<StyleProps>`
   border: 2px solid ${(props) => props.colors?.border};
@@ -50,13 +23,15 @@ export const Title = styled.p<ColorsPorps>`
   padding: 0px;
   width: 100%;
 `
-export const XAxis = styled.div<ColorsPorps>`
+export const XAxis = styled.div<ColorsSizePorps>`
   color: ${(props) => props.colors?.text};
   display: grid;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   grid-area: xaxis;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(
+    7, ${(props) => ((props.size.width - 55) / 7) + 'px'}
+  );
   height: 100%;
   padding-left: 15px;
   width: 100%;
@@ -64,7 +39,10 @@ export const XAxis = styled.div<ColorsPorps>`
 export const Day = styled.p`
   font-family: 'Poppins', sans-serif;
   margin: 0px;
+  overflow: hidden;
   padding: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 export const YAxis = styled.div<ColorsPorps>`
   color: ${(props) => props.colors?.text};
@@ -85,8 +63,11 @@ export const Hours = styled.p<ColorsPorps>`
   font-size: 12px;
   height: 15px;
   margin: 0;
+  overflow: hidden;
   padding: 0px;
+  text-overflow: ellipsis;
   width: 100%;
+  white-space: nowrap;
 `
 export const Shape = styled.div`
   display: grid;
