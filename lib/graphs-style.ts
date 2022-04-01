@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro'
-import { StyleProps, BarsProps, ColorsPorps, ColorsSizePorps } from './types'
+import {
+  StyleProps, BarsProps, ColorsProps, XaxisPorps, TitleXAxis,
+} from './types'
 
 export const Container = styled.div<StyleProps>`
   border: 2px solid ${(props) => props.colors?.border};
@@ -10,10 +12,10 @@ export const Container = styled.div<StyleProps>`
   grid-template-areas: "title title" "yaxis shape" "yaxis xaxis";
   grid-template-columns: 53px 1fr;
   height: ${(props) => props.size.height + 'px'};
-  padding: 24px;
+  padding: 24px 24px 20px 20px;
   width: ${(props) => props.size.width + 'px'};
 `
-export const Title = styled.p<ColorsPorps>`
+export const Title = styled.p<ColorsProps>`
   color: ${(props) => props.colors?.title};
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -23,20 +25,20 @@ export const Title = styled.p<ColorsPorps>`
   padding: 0px;
   width: 100%;
 `
-export const XAxis = styled.div<ColorsSizePorps>`
+export const XAxis = styled.div<XaxisPorps>`
   color: ${(props) => props.colors?.text};
   display: grid;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   grid-area: xaxis;
   grid-template-columns: repeat(
-    7, ${(props) => ((props.size.width - 55) / 7) + 'px'}
+    ${(props) => props.quantity}, ${(props) => ((props.size.width - 55) / props.quantity) + 'px'}
   );
   height: 100%;
   padding-left: 15px;
   width: 100%;
 `
-export const Day = styled.p`
+export const Day = styled.p<TitleXAxis>`
   font-family: 'Poppins', sans-serif;
   margin: 0px;
   overflow: hidden;
@@ -44,7 +46,7 @@ export const Day = styled.p`
   text-overflow: ellipsis;
   white-space: nowrap;
 `
-export const YAxis = styled.div<ColorsPorps>`
+export const YAxis = styled.div<ColorsProps>`
   color: ${(props) => props.colors?.text};
   border-right: 2px solid ${(props) => props.colors?.lines};
   display: grid;
@@ -55,9 +57,10 @@ export const YAxis = styled.div<ColorsPorps>`
   height: 100%;
   justify-content: space-around;
   padding: 0px;
+  text-align: end;
   width: 100%;
 `
-export const Hours = styled.p<ColorsPorps>`
+export const Hours = styled.p<ColorsProps>`
   color: ${(props) => props.colors?.text};
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
@@ -75,9 +78,9 @@ export const Shape = styled.div`
   grid-area: shape;
   grid-template-rows: repeat(4, 1fr);
   height: 100%;
-  width: 100%;
+  width: 95%;
 `
-export const Grid = styled.div<ColorsPorps>`
+export const Grid = styled.div<ColorsProps>`
   border-top: 1px dashed ${(props) => props.colors?.lines};
   font-family: 'Poppins', sans-serif;
   height: 100%;
@@ -87,7 +90,7 @@ export const Bars = styled.div<BarsProps>`
   align-items: flex-end;
   display: grid;
   font-family: 'Poppins', sans-serif;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(${(props) => props.quantity}, 1fr);
   height: ${(props) => props.size.height - 70 + 'px'};
   position: absolute;
   width: ${(props) => props.size.width - 55 + 'px'};

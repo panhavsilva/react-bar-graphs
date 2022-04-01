@@ -41,10 +41,11 @@ export type BarsProps = {
     height: number,
     width: number,
   },
+  quantity: number,
   color: string,
 }
 
-export type ColorsPorps = {
+export type ColorsProps = {
   colors: {
     title: string,
     border: string,
@@ -53,15 +54,34 @@ export type ColorsPorps = {
   },
 }
 
-export type ColorsSizePorps = {
+export type XaxisPorps = {
   size: {
     height: number,
     width: number,
   },
+  quantity: number,
   colors: {
     title: string,
     border: string,
     text: string,
     lines: string,
   },
+}
+
+export type Size = {
+  height: number,
+  width: number,
+}
+
+export type Colors = {
+  bars?: string,
+  gradient?: string,
+  title?: string,
+  border?: string,
+  text?: string,
+  lines?: string,
+}
+
+export type TitleXAxis = {
+  title: string,
 }

@@ -2,27 +2,27 @@ import { motion } from 'framer-motion'
 import * as G from './graphs-style'
 import { GraphicProps } from './types'
 import { maxValue, ranges } from './format-data'
+import {
+  verifySize, verifyBackground, verifyTitle, verifyStyle,
+} from './validate-data'
 
 export type GraphicPropsStorybook = GraphicProps
 
 export const Graphic = ({
   size, title, data, colors, type,
 }: GraphicProps) => {
-  const background = colors?.bars || colors?.gradient || 'linear-gradient(#fd749b, #281ac8)'
-  const style = {
-    border: colors?.border || '#bbbbbb',
-    title: colors?.title || '#636363',
-    lines: colors?.lines || '#d7d6d6',
-    text: colors?.text || '#636363',
-  }
-  const dimensions = size || { height: 400, width: 643 }
+  const background = verifyBackground(colors)
+  const style = verifyStyle(colors)
+  const dimensions = verifySize(size, data.length)
   const graphsType = type || 'number'
   const yAxis = ranges(data, graphsType)
   const onePiece = ((dimensions.height - 70) / maxValue(data))
 
   return (
     <G.Container size={dimensions} colors={style}>
-      <G.Title colors={style}>{title}</G.Title>
+      <G.Title colors={style}>
+        {verifyTitle(title)}
+      </G.Title>
       <G.YAxis colors={style}>
         {yAxis.map((item) => (
           <G.Hours key={item} title={item} colors={style}>
@@ -37,7 +37,7 @@ export const Graphic = ({
         <G.Grid colors={style} />
         <G.Grid colors={style} />
         <G.Grid colors={style} />
-        <G.Bars size={dimensions} color={background}>
+        <G.Bars size={dimensions} color={background} quantity={data.length}>
           {data.map((item) => (
             <motion.div
               className='bar-day'
@@ -54,9 +54,9 @@ export const Graphic = ({
           ))}
         </G.Bars>
       </G.Shape>
-      <G.XAxis colors={style} size={dimensions}>
+      <G.XAxis colors={style} size={dimensions} quantity={data.length}>
         {data.map((item) => (
-          <G.Day key={item.label}>{item.label}</G.Day>
+          <G.Day key={item.label} title={item.label}>{item.label}</G.Day>
         ))}
       </G.XAxis>
     </G.Container>

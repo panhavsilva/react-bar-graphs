@@ -1,4 +1,4 @@
-import { Data, TypesData, GraphicProps } from './types'
+import { Data, TypesData } from './types'
 
 export const maxValue = (data: Data[]) => {
   const seconds = data.map((item) => item.value)

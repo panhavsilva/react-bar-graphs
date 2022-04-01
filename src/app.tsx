@@ -19,7 +19,10 @@ export const App = () => {
   return (
     <>
       <h1>Example Bar Graphs</h1>
-      <Graphic title='Título' data={data} />
+      <Graphic
+        title='Título'
+        data={data}
+      />
     </>
   )
 }
