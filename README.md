@@ -37,6 +37,18 @@ yarn add @panhasilva/react-bar-graphs
 ```
 <br />
 
+## Prerequisites
+⚠️ Peer Dependencies
+
+* React
+* Styled-components
+* Framer-motion
+
+This component has peer Dependencies React, Framer-motion and Styled-components. 
+This dependencies has to be installed and linked into your project.
+
+<br />
+
 ---
 ## 🚀 Usage
 ```jsx
@@ -56,6 +68,41 @@ export const App = () => {
   )
 }
 ```
+### Customizing your bar graph
+```jsx
+import { Graphic } from '@panhasilva/react-bar-graphs'
+
+export const App = () => {
+  const data = [
+    {label: 'Mon', value: 300},
+    {label: 'Tue', value: 4000},
+  ]
+  const size = {
+    height: 300,
+    width: 400,
+  }
+  const colors = {
+    bars: '#fd749b',
+    title: '#636363',
+    border: '#bbbbbb',
+    text: '#636363',
+    lines: '#d7d6d6',
+  }
+
+  return (
+    <Graphic 
+      title='title'
+      data={data}
+      type='price'
+      size={size}
+      colors={colors}
+    />
+  )
+}
+```
+
+<br />
+
 
 ## 🔭 Props
 The ReactBarGraphs component takes the following props:
@@ -80,6 +127,7 @@ The Colors type have of the following values:
 * **lines** *(optional)*: string (hex color)
 
 <br />
+
 ---
 
 ## :handshake: Contributing
