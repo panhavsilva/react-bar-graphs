@@ -19,7 +19,7 @@
 
 ## :black_nib: Author
 
-:bust_in_silhouette: **Pâmela Vieira da Silva - @panhavsilva**
+:bust_in_silhouette: **Pâmela Vieira da Silva - @panhasilva**
 
 * Github: [@panhavsilva](https://github.com/panhavsilva)
 
@@ -36,6 +36,7 @@ npm install @panhasilva/react-bar-graphs
 yarn add @panhasilva/react-bar-graphs
 ```
 <br />
+
 
 ## Prerequisites
 ⚠️ Peer Dependencies
