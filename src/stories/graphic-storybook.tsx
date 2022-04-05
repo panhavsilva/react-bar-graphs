@@ -1,8 +1,9 @@
-import { Graphic, GraphicPropsStorybook } from '@panhasilva/react-bar-graphs'
+import { Graphic } from '@panhasilva/react-bar-graphs'
+import { GraphicProps } from '../../lib/types'
 
 export const GraphicStorybook = ({
   size, title, data, colors, type,
-}: GraphicPropsStorybook) => {
+}: GraphicProps) => {
   return (
     <Graphic
       size={size}

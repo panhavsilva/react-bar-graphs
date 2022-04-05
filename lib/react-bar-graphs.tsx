@@ -6,8 +6,6 @@ import {
   verifySize, verifyBackground, verifyTitle, verifyStyle,
 } from './validate-data'
 
-export type GraphicPropsStorybook = GraphicProps
-
 export const Graphic = ({
   size, title, data, colors, type,
 }: GraphicProps) => {

@@ -2,6 +2,7 @@
 .eslintrc.json
 .storybook
 index.html
+assets
 lib
 src
 tsconfig.json

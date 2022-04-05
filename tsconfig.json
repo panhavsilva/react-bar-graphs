@@ -21,7 +21,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@panhasilva/react-bar-graphs": ["./lib"]
+      "@panhasilva/react-bar-graphs": ["./lib/react-bar-graphs"]
     }
   },
   "include": [
